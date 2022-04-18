@@ -1,24 +1,25 @@
-import Header from "./components/Header";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-         
-import ProductListing from "./components/ProductListing";
-import ProductDetails from "./components/ProductDetails";
-
-
+import {BrowserRouter as Router, Route ,Switch } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import Login from './components/Login';
+import Register from './components/Register';
+import './App.css'
+import Navbar from './components/Navbar';
 function App() {
-  
   return (
-    <div className="App">
-      <Router>
-      <Header />
-        <Switch>
-          <Route exact path="/" component={ProductListing} />
-          <Route exact path="/product/:product_id" component={ProductDetails} />
-        </Switch>
-      </Router>
-   
-      
-    </div>
+   <Router>
+     <Navbar/>
+     <Switch>
+     <Route exact path='/'>
+          <Dashboard/>
+       </Route>
+      <Route exact path='/register'>
+          <Register/>
+       </Route>
+       <Route exact path='/login'>
+          <Login/>
+       </Route>
+     </Switch>
+   </Router>
   );
 }
 
